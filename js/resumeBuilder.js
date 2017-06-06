@@ -9,7 +9,54 @@ awesomeThoughts=awesomeThoughts.replace("AWESOME","FUN");
  $( "#main" ).append( awesomeThoughts );*/
 
 var formattedName = HTMLheaderName.replace("%data%","Juan Andres");
-$("#header").append(formattedName);
+var formattedRole = HTMLheaderRole.replace("%data%","Web Developer");
+$("#header").append(formattedName).append(formattedRole);
+
+var bio = {
+
+	"contacts":{
+		"mobile" : "650-555-5555",
+		"email" : "john@example.com",
+		"twitter" : "@jondoe",
+		"github" : "jonhdoe",
+		"blog" : "jonhdoe.com",
+		"location" : "San Francisco",
+		"photo" : "images/fry.jpg"
+
+	},
+
+}
+
+var mobile = HTMLmobile.replace("%data%", bio.contacts.mobile);
+var email = HTMLemail.replace("%data%", bio.contacts.email);
+var twitter = HTMLtwitter.replace("%data%", bio.contacts.twitter);
+var github = HTMLgithub.replace("%data%", bio.contacts.github);
+var blog = HTMLblog.replace("%data%", bio.contacts.blog);
+var locationPlace = HTMLlocation.replace("%data%", bio.contacts.location);
+
+$("#topContacts").append(mobile);
+$("#topContacts").append(email);
+$("#topContacts").append(twitter);
+$("#topContacts").append(github);
+$("#topContacts").append(blog);
+$("#topContacts").append(locationPlace);
+
+
+var bioPic = HTMLbioPic.replace("%data%",bio.contacts.photo);
+var message = HTMLwelcomeMsg.replace("%data%","esto es un menssaje");
+$("#header").append( bioPic).append(message).append(HTMLskillsStart);
+
+
+var skills = ["confident", "trusty", "hard worker"];
+
+function displaySkill(){
+	for(var i = 0; i < skills.length; i++){
+		var skill = HTMLskills.replace("%data%", skills[i]);
+		$("#skills").append(skill);
+	}
+}
+
+displaySkill();
 
 var work = {
   "jobs": [
@@ -74,12 +121,42 @@ $("#main").append( internationalizeButton);
 
 var education = {
     
-    name: "Ucv",
-    years: 2,
-    city: "caracas"
+    "educations" : [
+
+	    {
+	    	"name" : "Ucv",
+	    	"degree" : "Engineer",
+	    	"location" : "caracas",
+	    	"dates" : "2010",
+	     	"major" : "23"
+	     }
+
+     ]
+
 }
 
 
+
+
+
+
+education.display = function() {
+
+	for(var i=0; i < education.educations.length; i++){
+		$("#education").append(HTMLschoolStart);
+		var schoolName = HTMLschoolName.replace("%data%", education.educations[i].name);
+		var schoolDegree = HTMLschoolDegree.replace("%data%", education.educations[i].degree);
+		var schoolDates = HTMLschoolDates.replace("%data%", education.educations[i].dates);
+		var schoolLocation = HTMLschoolLocation.replace("%data%", education.educations[i].location);
+		var schoolMajor = HTMLschoolMajor.replace("%data%", education.educations[i].major);
+		$("#education").append(schoolName).append(schoolDegree).append(schoolDates).append(schoolLocation).append(schoolMajor);
+
+	}
+
+
+}
+
+education.display();
 
 var project = {
 
@@ -137,6 +214,34 @@ var displayWork = function(){
 	}
 }
 
+
+var classes = {
+
+	classes : [
+
+		{
+			"title" : "Physic",
+			"school" : "berkey",
+			"dates" : "2010",
+			"url" : "www.cantv.net"
+		}
+
+	],
+
+	display : function(){
+		for(var i = 0; i < this.classes.length; i++){
+			$("#education").append(HTMLonlineClasses);
+			var onlineTitle = HTMLonlineTitle.replace("%data%", this.classes[i].title);
+			var onlineSchool =  HTMLonlineSchool.replace("%data%", this.classes[i].school);
+			var onlineDates = HTMLonlineDates.replace("%data%", this.classes[i].dates); 
+			var onlineURL = HTMLonlineURL.replace("%data%", this.classes[i].url);
+			$("#education").append(onlineTitle).append(onlineSchool).append(onlineDates).append(onlineURL);
+		}
+	}
+
+}
+
+classes.display();
 
 $(document).click(function(loc) {
   // your code goes here
