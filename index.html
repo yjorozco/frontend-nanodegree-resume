@@ -25,12 +25,25 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   <!-- Load the page styles. -->
   <link href="css/style.css" rel="stylesheet">
 
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyASzvmja-CfJsxrU8e-574pwNCwxsoW7Lk&callback=initializeMap&libraries=places"
+  type="text/javascript"></script>
 
-
+  <script src="https://d3js.org/d3.v4.min.js"></script>
   <!--
   Uncomment the <script> tag below when you're ready to add an interactive Google Map to your resume!
   -->
 <!-- <script src="http://maps.googleapis.com/maps/api/js?libraries=places"></script> -->
+    <script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+      }
+    </script>
+
+
 
   <meta name="viewport" content="width=device-width,initial-scale=1">
 </head>
@@ -97,6 +110,8 @@ need to load. You'll see a lot of <link>s to CSS files for styles and
   dynamically when this website, index.html, is opened.
   -->
   <script src="js/resumeBuilder.js"></script>
+
+
 
 
   <!--

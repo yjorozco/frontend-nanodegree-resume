@@ -121,7 +121,8 @@ $("#main").append( internationalizeButton);
 
 var education = {
     
-    "educations" : [
+
+    "schools" : [
 
 	    {
 	    	"name" : "Ucv",
@@ -129,6 +130,7 @@ var education = {
 	    	"location" : "caracas",
 	    	"dates" : "2010",
 	     	"major" : "23"
+
 	     }
 
      ]
@@ -136,19 +138,15 @@ var education = {
 }
 
 
-
-
-
-
 education.display = function() {
 
-	for(var i=0; i < education.educations.length; i++){
+	for(var i=0; i < education.schools.length; i++){
 		$("#education").append(HTMLschoolStart);
-		var schoolName = HTMLschoolName.replace("%data%", education.educations[i].name);
-		var schoolDegree = HTMLschoolDegree.replace("%data%", education.educations[i].degree);
-		var schoolDates = HTMLschoolDates.replace("%data%", education.educations[i].dates);
-		var schoolLocation = HTMLschoolLocation.replace("%data%", education.educations[i].location);
-		var schoolMajor = HTMLschoolMajor.replace("%data%", education.educations[i].major);
+		var schoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
+		var schoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
+		var schoolDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
+		var schoolLocation = HTMLschoolLocation.replace("%data%", education.schools[i].location);
+		var schoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].major);
 		$("#education").append(schoolName).append(schoolDegree).append(schoolDates).append(schoolLocation).append(schoolMajor);
 
 	}
@@ -242,6 +240,10 @@ var classes = {
 }
 
 classes.display();
+
+
+ $("#mapDiv").append(googleMap);
+
 
 $(document).click(function(loc) {
   // your code goes here

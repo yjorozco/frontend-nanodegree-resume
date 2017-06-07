@@ -116,7 +116,7 @@ function initializeMap() {
   appended to #mapDiv in resumeBuilder.js.
   */
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
-
+ 
 
   /*
   locationFinder() returns an array of every location string from the JSONs
@@ -134,6 +134,25 @@ function initializeMap() {
     // the locations array. Note that forEach is used for array iteration
     // as described in the Udacity FEND Style Guide:
     // https://udacity.github.io/frontend-nanodegree-styleguide/javascript.html#for-in-loop
+    var education = {
+        
+
+        "schools" : [
+
+          {
+            "name" : "Ucv",
+            "degree" : "Engineer",
+            "location" : "caracas",
+            "dates" : "2010",
+            "major" : "23"
+
+           }
+
+         ]
+
+    }
+
+
     education.schools.forEach(function(school){
       locations.push(school.location);
     });
@@ -179,6 +198,8 @@ function initializeMap() {
     // hmmmm, I wonder what this is about...
     google.maps.event.addListener(marker, 'click', function() {
       // your code goes here!
+      infoWindow.open(map, marker);
+
     });
 
     // this is where the pin actually gets added to the map.
